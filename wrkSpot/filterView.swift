@@ -6,15 +6,28 @@
 //
 
 import UIKit
-
+protocol btnAction{
+    func btnAction(value:Int)
+}
 class filterView: UIView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    var delegate:btnAction?
+    convenience init() {
+        self.init()
     }
-    */
 
+    
+    
+    @IBAction func oneMBtnAction(_ sender: UIButton) {
+        delegate?.btnAction(value: 1000000)
+    }
+    
+    @IBAction func fiveMBtnAction(_ sender: UIButton) {
+        delegate?.btnAction(value: 5000000)
+    }
+    @IBAction func tenMBtnAction(_ sender: UIButton) {
+        delegate?.btnAction(value: 10000000)
+    }
+    
+    
 }
